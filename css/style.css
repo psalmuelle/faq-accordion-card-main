@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+body {
+  background-color: hsl(240, 73%, 65%);
+  background-image: linear-gradient(
+    to bottom,
+    hsl(273, 75%, 66%),
+    hsl(240, 73%, 65%)
+  );
+  background-repeat: no-repeat;
+}
+main {
+  width: 20.5rem;
+  height: 33.5rem;
+  background: white;
+  border-radius: 1.5rem;
+  margin: 11rem auto;
+  margin-bottom: 5rem;
+  box-shadow: -3px 0px 11px 1px rgba(74, 75, 94, 0.57);
+  -webkit-box-shadow: -3px 0px 11px 1px rgba(74, 75, 94, 0.57);
+  -moz-box-shadow: -3px 0px 11px 1px rgba(74, 75, 94, 0.57);
+}
+
+.one-section {
+  height: fit-content;
+  display: inline-block;
+  margin-top: 6rem;
+  position: relative;
+  color: hsl(238, 29%, 16%);
+}
+#heading::before {
+  content: "";
+  position: absolute;
+  width: 74%;
+  height: 14rem;
+  background: url("../images/illustration-woman-online-mobile.svg"),
+    url("../images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+
+  background-position: top, bottom;
+  background-size: contain;
+
+  top: -52%;
+  left: 13%;
+  z-index: 43;
+}
+#heading {
+  margin: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+.faq {
+  margin: 0 1.5rem 1rem 1.5rem;
+
+  border-bottom: 1px solid hsl(240, 5%, 91%);
+  padding-bottom: 1rem;
+  font-size: 13px;
+  text-align: left;
+}
+.one-section figcaption:hover {
+  cursor: pointer;
+  color: hsl(14, 88%, 65%);
+}
+.arrow {
+  float: right;
+}
+
+.info {
+  font-size: 12px;
+  display: none;
+  color: hsl(240, 6%, 50%);
+  margin-top: 0.9rem;
+  padding-bottom: 0.3rem;
+}
+.open {
+  display: block;
+}
+.arrow-down{
+  transform: rotate(3.142rad);
+  transition: transform 500ms ease-in;
+}
+.open-bold {
+  font-weight: bold;
+}
+/* Tablet mode*/
+@media screen and (min-width: 600px) {
+  body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    width: 29rem;
+    height: 35rem;
+    margin: 0;
+  }
+  #heading::before {
+    top: -58%;
+    height: 70%;
+  }
+  #heading {
+    margin-top: 4rem;
+  }
+}
+
+/* Design for Desktop*/
+@media screen and (min-width: 1000px) {
+  main {
+    width: 57.5rem;
+    height: 32rem;
+  }
+  .one-section {
+    float: right;
+    text-align: left;
+    margin: 0 4.5rem 4rem 0;
+    width: 25rem;
+  }
+  #heading::before {
+    width: 118%;
+    height: 119%;
+    background: url("../images/illustration-box-desktop.svg"),
+      url("../images/illustration-woman-online-desktop.svg"),
+      url("../images/bg-pattern-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: -4% 63%, center, center;
+    background-size: 12rem, contain, contain;
+
+    top: 0%;
+    left: -133%;
+  }
+  #heading {
+    text-align: left;
+  }
+}
