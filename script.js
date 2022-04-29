@@ -1,85 +1,42 @@
 "strict mode";
-const arrow=document.querySelectorAll(".arrow");
+const arrow = document.querySelectorAll(".arrow");
 const figCaption = document.querySelectorAll("figcaption");
-const info = document.querySelectorAll(".info")
-const faq = document.querySelectorAll(".faq")
+const info = document.querySelectorAll(".info");
+const faq = document.querySelectorAll(".faq");
 
+function accordion(ind) {
+  console.log(ind);
+  if (faq[ind].classList.contains("active")) {
+    arrow.forEach((_arr, inde) => {
+      arrow.item(inde).classList.remove("arrow-down");
+    });
+    info.forEach((_inf, inde) => {
+      info.item(inde).classList.remove("open");
+    });
+    figCaption.forEach((_fig, inde) => {
+      figCaption.item(inde).classList.remove("open-bold");
+    });
 
-const accordion = ev =>{
-    ev.children[0].classList.toggle("open-bold")
-    ev.children[0].classList.toggle("arrow-down");
-    ev.children[3].classList.toggle("open");
-}
-
-const removeAccordion = ev =>{
- ev.classList.remove("open-bold")
-   ev.lastChild.classList.remove("arrow-down");
-   ev.nextElementSibling.classList.remove("open");
-}
-
-const siblings = n => [...n.parentElement.children].filter(c=>c.nodeType == 1 && c!=n)
-
-
-
-/*
-figCaption.forEach(e=> {
-
-  e.addEventListener("click", ev=>{
-faq.forEach(eachFaq =>{
- console.log(eachFaq.children[1].classList.contains("open"))
- console.log(eachFaq.children[1])
-
-if (eachFaq.children[1].classList.contains("open") ){
-   removeAccordion(e)
-}else{
-  accordion(ev.target)
-   
-    
-}
-
-
-})
-  })
-  
-
-
-});*/
-
-
-faq.forEach(eachFaq=>{
-  if(eachFaq.children[1].classList.contains("open") >= 2){
-  
+    arrow.forEach((_arr) => {
+      arrow.item(ind).classList.add("arrow-down");
+    });
+    info.forEach((_inf) => {
+      info.item(ind).classList.add("open");
+    });
+    figCaption.forEach((_fig) => {
+      figCaption.item(ind).classList.add("open-bold");
+      figCaption.item(ind).classList.add("open-bold");
+    });
   }
-  eachFaq.addEventListener("click", (ev)=>{
-ev.preventDefault()
-accordion(ev.target)
+}
 
+faq.forEach((faqt, index) => {
+  const all = [index];
 
-
+  faqt.addEventListener("click", (ev) => {
+    if (!faqt[1]) {
+      faqt.classList.add("active");
+      accordion(index);
+    }
   })
 })
-
-
-/*let getSiblings = function (e) {
-    // for collecting siblings
-    let siblings = []; 
-    // if no parent, return no sibling
-    if(!e.parentNode) {
-        return siblings;
-    }
-    // first child of the parent node
-    let sibling  = e.parentNode.firstChild;
-    
-    // collecting siblings
-    while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== e) {
-            siblings.push(sibling);
-        }
-        sibling = sibling.nextSibling;
-    }
-    return siblings;
-    
-    
-    
-    && ev.target.classList.contains("open-bold")
-    */
